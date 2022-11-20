@@ -22,7 +22,6 @@
         </div>
         <div class="nav">
             <div class="btn-group" role="group">
-                <button id="info_open" class="btn btn-primary"><i class="bi bi-info-circle"></i></button>
                 <button id="full_screen" class="btn btn-primary"><i class="bi bi-arrows-fullscreen"></i></button>
                 <button id="mode_trigger" class="btn btn-primary"><i class="bi bi-brightness-high"></i></button>
             </div>
@@ -30,10 +29,6 @@
     </main>
     <section id="info_modal" class="n">
         <div id="mask"></div>
-        <div id="modal">
-            <p style="margin-top: 10px;"><a href="https://github.com/Ablaze-MIRAI/Digital_Clock">GitHub</i></a></p>
-            <button id="info_close" class="btn btn-primary">閉じる</button>
-        </div>
     </section>
     <style>
         :root{
@@ -217,7 +212,6 @@
         mode_trigger.onclick = () =>{Trigger_theme_mode();};
         info_open.onclick = () =>{Info_modal_open();};
         info_close.onclick = () =>{Info_modal_close();};
-        window.onload = () =>{nosleep.pause();};
         setInterval("Clock()", 100);
     </script>
 </body>
