@@ -7,7 +7,6 @@
     <meta property="og:url" content="https://digital.limu.ml"/>
     <meta property="og:title" content="Digital Clock"/>
     <meta property="og:description" content="デジタル時計"/>
-    <meta property="og:image" content="https://ablaze.tokyo/img/og_img.png"/>
     <link rel="manifest" href="manifest..webmanifest">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +25,6 @@
                 <button id="info_open" class="btn btn-primary"><i class="bi bi-info-circle"></i></button>
                 <button id="full_screen" class="btn btn-primary"><i class="bi bi-arrows-fullscreen"></i></button>
                 <button id="mode_trigger" class="btn btn-primary"><i class="bi bi-brightness-high"></i></button>
-                <button id="sleep_lock" class="btn btn-primary"><i class="bi bi-unlock"></i></button>
             </div>
         </div>
     </main>
@@ -76,13 +74,13 @@
         
         .time{
             text-align: center;
-            font-size: 20vw;
+            font-size: 30vw;
             margin: 0;
         }
 
         .day{
             text-align: center;
-            font-size: 2vw;
+            font-size: 5vw;
             margin: 0;
         }
 
@@ -145,8 +143,6 @@
         const info_modal = document.getElementById("info_modal");
         const info_open = document.getElementById("info_open");
         const info_close = document.getElementById("info_close");
-        const sleep_lock_btn = document.getElementById("sleep_lock");
-        const nosleep = document.getElementById("nosleep");
         const pwa_install = document.getElementById("pwa_install");
         let now_mode = true;
         let now_sleep_mode = false;
