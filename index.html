@@ -22,19 +22,11 @@
         </div>
         <div class="nav">
             <div class="btn-group" role="group">
-                <button id="info_open" class="btn btn-primary"><i class="bi bi-info-circle"></i></button>
                 <button id="full_screen" class="btn btn-primary"><i class="bi bi-arrows-fullscreen"></i></button>
                 <button id="mode_trigger" class="btn btn-primary"><i class="bi bi-brightness-high"></i></button>
             </div>
         </div>
     </main>
-    <section id="info_modal" class="n">
-        <div id="mask"></div>
-        <div id="modal">
-            <p style="margin-top: 10px;"><a href="https://github.com/Ablaze-MIRAI/Digital_Clock">GitHub</i></a></p>
-            <button id="info_close" class="btn btn-primary">閉じる</button>
-        </div>
-    </section>
     <style>
         :root{
             --main-color: #300020;
@@ -140,9 +132,6 @@
         const mode_trigger = document.getElementById("mode_trigger");
         const time = document.getElementById("time");
         const day = document.getElementById("day");
-        const info_modal = document.getElementById("info_modal");
-        const info_open = document.getElementById("info_open");
-        const info_close = document.getElementById("info_close");
         const pwa_install = document.getElementById("pwa_install");
         let now_mode = true;
         let now_sleep_mode = false;
@@ -206,7 +195,7 @@
                 defferedPrompt.userChoice.then(function(choiceResult) {
                     if(choiceResult.outcome === "dismissed"){
                     }else{
-                        window.alert("インストールされました");
+                        window.alert("インストール完了");
                     }
                 });
                 defferedPrompt = null;
