@@ -27,9 +27,6 @@
             </div>
         </div>
     </main>
-    <section id="info_modal" class="n">
-        <div id="mask"></div>
-    </section>
     <style>
         :root{
             --main-color: #300020;
@@ -135,9 +132,6 @@
         const mode_trigger = document.getElementById("mode_trigger");
         const time = document.getElementById("time");
         const day = document.getElementById("day");
-        const info_modal = document.getElementById("info_modal");
-        const info_open = document.getElementById("info_open");
-        const info_close = document.getElementById("info_close");
         const pwa_install = document.getElementById("pwa_install");
         let now_mode = true;
         let now_sleep_mode = false;
@@ -201,7 +195,7 @@
                 defferedPrompt.userChoice.then(function(choiceResult) {
                     if(choiceResult.outcome === "dismissed"){
                     }else{
-                        window.alert("インストールされました");
+                        window.alert("インストール完了");
                     }
                 });
                 defferedPrompt = null;
@@ -212,6 +206,7 @@
         mode_trigger.onclick = () =>{Trigger_theme_mode();};
         info_open.onclick = () =>{Info_modal_open();};
         info_close.onclick = () =>{Info_modal_close();};
+        window.onload = () =>{nosleep.pause();};
         setInterval("Clock()", 100);
     </script>
 </body>
