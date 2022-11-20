@@ -1,8 +1,8 @@
 {
   "name": "Digital Clock",
   "short_name": "Clock",
-  "theme_color": "#222222",
-  "background_color": "#222222",
+  "theme_color": "#E05060",
+  "background_color": "#300020",
   "display": "standalone",
   "scope": "./index.html",
   "start_url": "./index.html",
