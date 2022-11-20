@@ -115,11 +115,11 @@
         #modal{
             background: var(--main-color);
             color: var(--text-color);
-            max-width: 500px;
-            padding: 15px;
+            max-width: 300px;
+            padding: 10px;
             border-radius: 5px;
             position: absolute;
-            top: 50px;
+            top: 40px;
             left: 0;
             right: 0;
             margin: 0 auto;
@@ -127,7 +127,7 @@
         }
 
         #info_close{
-            width: 100%;
+            width: 80%;
         }
 
         .n{
@@ -195,19 +195,7 @@
                 now_mode = false;
             }
         }
-
-        const Trigger_sleep_lock = () =>{
-            if(now_sleep_mode){
-                sleep_lock_btn.innerHTML = `<i class="bi bi-unlock"></i>`;
-                nosleep.pause();
-                now_sleep_mode = false;
-            }else{
-                sleep_lock_btn.innerHTML = `<i class="bi bi-lock"></i>`;
-                nosleep.play();
-                now_sleep_mode = true;
-            }
-        }
-
+              
         const Info_modal_open = () =>{
             info_modal.className = "";
         }
