@@ -2,8 +2,12 @@
 <html lang="ja" mode="dark">
 <head>
     <meta charset="UTF-8">
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@ablaze_mirai"/>
+    <meta property="og:url" content="https://digital.limu.ml"/>
     <meta property="og:title" content="Digital Clock"/>
     <meta property="og:description" content="デジタル時計"/>
+    <meta property="og:image" content="https://ablaze.tokyo/img/og_img.png"/>
     <link rel="manifest" href="manifest..webmanifest">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,9 +26,23 @@
                 <button id="info_open" class="btn btn-primary"><i class="bi bi-info-circle"></i></button>
                 <button id="full_screen" class="btn btn-primary"><i class="bi bi-arrows-fullscreen"></i></button>
                 <button id="mode_trigger" class="btn btn-primary"><i class="bi bi-brightness-high"></i></button>
+                <button id="sleep_lock" class="btn btn-primary"><i class="bi bi-unlock"></i></button>
             </div>
         </div>
     </main>
+    <section id="info_modal" class="n">
+        <div id="mask"></div>
+        <div id="modal">
+            <p style="margin-top: 10px;"><a href="https://github.com/Ablaze-MIRAI/Digital_Clock">GitHub</i></a></p>
+            <button id="info_close" class="btn btn-primary">閉じる</button>
+        </div>
+    </section>
+    <section>
+        <video id="nosleep" style="position: fixed; top:0; left:0; height:0;" muted loop>
+            <source src="./nosleep.webm">
+            <source src="./nosleep.mp4">
+        </video>
+    </section>
     <style>
         :root{
             --main-color: #300020;
@@ -56,10 +74,10 @@
 
         .clock{
             position: absolute;
-            top: 40%;
-            left: 40%;
-            transform: translateY(-40%) translateX(-40%);
-            -webkit-transform: translateY(-40%) translateX(-40%);
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            -webkit-transform: translateY(-50%) translateX(-50%);
         }
         
         .time{
@@ -97,11 +115,11 @@
         #modal{
             background: var(--main-color);
             color: var(--text-color);
-            max-width: 300px;
-            padding: 10px;
+            max-width: 500px;
+            padding: 15px;
             border-radius: 5px;
             position: absolute;
-            top: 40px;
+            top: 50px;
             left: 0;
             right: 0;
             margin: 0 auto;
@@ -109,7 +127,7 @@
         }
 
         #info_close{
-            width: 80%;
+            width: 100%;
         }
 
         .n{
@@ -133,6 +151,8 @@
         const info_modal = document.getElementById("info_modal");
         const info_open = document.getElementById("info_open");
         const info_close = document.getElementById("info_close");
+        const sleep_lock_btn = document.getElementById("sleep_lock");
+        const nosleep = document.getElementById("nosleep");
         const pwa_install = document.getElementById("pwa_install");
         let now_mode = true;
         let now_sleep_mode = false;
@@ -175,7 +195,19 @@
                 now_mode = false;
             }
         }
-              
+
+        const Trigger_sleep_lock = () =>{
+            if(now_sleep_mode){
+                sleep_lock_btn.innerHTML = `<i class="bi bi-unlock"></i>`;
+                nosleep.pause();
+                now_sleep_mode = false;
+            }else{
+                sleep_lock_btn.innerHTML = `<i class="bi bi-lock"></i>`;
+                nosleep.play();
+                now_sleep_mode = true;
+            }
+        }
+
         const Info_modal_open = () =>{
             info_modal.className = "";
         }
